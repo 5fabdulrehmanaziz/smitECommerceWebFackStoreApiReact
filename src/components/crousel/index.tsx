@@ -1,4 +1,3 @@
-import React from "react";
 import { useState } from "react";
 const images = [
   "https://picsum.photos/500/300?random=1",

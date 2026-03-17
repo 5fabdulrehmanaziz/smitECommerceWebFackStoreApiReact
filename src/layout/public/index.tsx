@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "../../components/navbar";
 import Crousel from "../../components/crousel";
 const index = () => {
