@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #6e1111;
+    padding: 1em 1rem;
+}
+.navbar img {
+    width: 150px;
+}
+.navbar ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+.navbar ul li {
+    position: relative;
+    list-style: none;
+    padding: 10px;
+}
+.navbar ul li a {
+    position: relative;
+    font-size: 1.5em;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease-in-out 0.2s;
+}
+.navbar ul li a:hover {
+    font-size: 2em;
+    cursor: pointer;
+}
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+.navbar ul li a:hover::after {
+    transform: scaleX(1);
+    background-color: white;
+    bottom: 0;
+    left: 0;
+}
+.navbar-ls-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 1em;
+}
+.navbar-ls-buttons button {
+    padding: 10px;
+    border: 1px solid white;
+    background-color: #ffffff00;
+    color: white;
+    transition: all 0.3s ease-in-out 0.2s;
+}
+.navbar-ls-buttons button:hover {
+    font-size: 1.2em;
+    padding: -10px;
+    cursor: pointer;
+}
+.navbar-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+.cart {
+    position: relative;
+    transition: all 0.3s ease-in-out 0.2s;
+}
+.cart:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+.cart-number {
+position: absolute;
+font-size: 1em;
+color: white;
+top: 0;
+right: 0;
+width: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 2px;
+height: 20px;
+border-radius: 50%;
+background-color: #ff000062;
+color: white;
+}
