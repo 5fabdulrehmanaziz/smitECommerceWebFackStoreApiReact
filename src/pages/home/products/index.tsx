@@ -10,7 +10,6 @@ const index = () => {
       setProducts(data);
     });
   }, []);
-
   return (
     <div
       style={{
