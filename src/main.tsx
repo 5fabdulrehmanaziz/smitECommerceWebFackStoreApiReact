@@ -1,12 +1,20 @@
-import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter } from "react-router-dom";
-import App from "./App.tsx";
+import { createBrowserRouter } from "react-router";
+import { RouterProvider } from "react-router/dom";
+import Home from "./pages/home";
+import Product from "./pages/product";
+import { useParams } from "react-router";
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/product/:id",
+    element: <Product />,
+  },
+]);
 createRoot(document.getElementById("root")!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </StrictMode>,
+  <RouterProvider router={router} />,
 );

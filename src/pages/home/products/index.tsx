@@ -1,15 +1,20 @@
+import useProducts from "../../../hooks/useProducts";
 import ProductCard from "../../../components/product-card";
-import getProducts from "../../../services/product-api";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const index = () => {
-  const [products, setProducts] = useState([]);
-
+  const products = useProducts();
   useEffect(() => {
-    getProducts().then((data) => {
-      setProducts(data);
-    });
+    console.log(products);
   }, []);
+  const handleClick = async (id: number) => {
+    const product = products.products.find((product: any) => product.id === id);
+    if (!product) {
+      console.log(products.products.find((product: any) => product.id === id));
+    } else {
+      console.log(product);
+    }
+  };
   return (
     <div
       style={{
@@ -22,8 +27,12 @@ const index = () => {
         margin: "0 auto",
       }}
     >
-      {products.map((product: any, idx: number) => (
-        <div key={idx} style={{ breakInside: "avoid", marginBottom: "10px" }}>
+      {products.products.map((product: any, idx: number) => (
+        <div
+          key={idx}
+          style={{ breakInside: "avoid", marginBottom: "10px" }}
+          onClick={() => handleClick(product.id)}
+        >
           <ProductCard
             title={product.title}
             rating={product.rating}
