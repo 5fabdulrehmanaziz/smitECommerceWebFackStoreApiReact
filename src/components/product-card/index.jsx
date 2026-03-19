@@ -1,5 +1,3 @@
-import React from "react";
-
 const index = ({ title, rating, price, image }) => {
   return (
     // ProductCard Component ke andar
