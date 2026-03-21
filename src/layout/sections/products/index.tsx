@@ -1,19 +1,13 @@
 import useProducts from "../../../hooks/useProducts";
 import ProductCard from "../../../components/product-card";
-import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 const index = () => {
   const products = useProducts();
-  useEffect(() => {
-    console.log(products);
-  }, []);
+  const navigate = useNavigate();
+
   const handleClick = async (id: number) => {
-    const product = products.products.find((product: any) => product.id === id);
-    if (!product) {
-      console.log(products.products.find((product: any) => product.id === id));
-    } else {
-      console.log(product);
-    }
+    navigate(`/product/${id}`);
   };
   return (
     <section className="products-section" id="products">
@@ -29,7 +23,22 @@ const index = () => {
         }}
       >
         {products.products.map((product: any, idx: number) => (
-          <div key={idx} style={{ breakInside: "avoid", marginBottom: "10px" }}>
+          <div
+            key={idx}
+            onClick={() => handleClick(product.id)}
+            style={{
+              breakInside: "avoid",
+              marginBottom: "10px",
+              cursor: "pointer",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-5px)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(0)";
+            }}
+          >
             <ProductCard
               title={product.title}
               rating={product.rating}

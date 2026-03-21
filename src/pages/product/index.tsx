@@ -12,7 +12,7 @@ const Product = () => {
 
   useEffect(() => {
     const fetchProduct = async () => {
-      const data = await getProduct({ id });
+      const data = await getProduct({ id: Number(id) });
       setProduct(data);
     };
     fetchProduct();
@@ -22,7 +22,9 @@ const Product = () => {
 
   return (
     <>
-      <Nav />
+      <header>
+        <Nav />
+      </header>
       <main>
         <div className="product-container">
           <img
