@@ -1,5 +1,5 @@
 import google_logo from "../../assets/google_logo.svg";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./index.css";
 import { RiMenuLine, RiShoppingCartLine } from "react-icons/ri";
 import { useState } from "react";
@@ -8,6 +8,7 @@ import { useCart } from "../../contexts/cart";
 const Navbar = (data: any) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { quantity }: any = useCart();
+  const navigate = useNavigate();
   return (
     <nav>
       <div>
@@ -37,7 +38,11 @@ const Navbar = (data: any) => {
       <div className="navbar-right">
         <div className="cart">
           <span className="cart-number">{quantity}</span>
-          <RiShoppingCartLine color="white" size="2.5em" />
+          <RiShoppingCartLine
+            onClick={() => navigate("/cart")}
+            color="white"
+            size="2.5em"
+          />
         </div>
         <div className="menu-container">
           <RiMenuLine
