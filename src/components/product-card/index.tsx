@@ -1,18 +1,30 @@
 import AddToCartButton from "../buttons/add-to-cart";
 import "./index.css";
-const index = ({ title, rating, price, image, id }: any) => {
+const index = ({
+  title,
+  rating,
+  price,
+  image,
+  id,
+}: {
+  title: string;
+  rating: number;
+  price: number;
+  image: string;
+  id: number;
+}) => {
   return (
     // ProductCard Component ke andar
     <div className="card-container">
       {/* Image Styling */}
-      <img className="card-image" src={image} alt={title} />
+      <img className="card-image" src={image && image} alt={title} />
 
       {/* Content Styling */}
       <div className="card-content">
         <h3 className="card-title">{title}</h3>
         <p className="card-rating">
-          Rating: {rating.rate}⭐
-          <span className="card-raters-count">({rating.count})</span>
+          Rating: {rating}⭐
+          <span className="card-raters-count">({rating})</span>
         </p>
         <div className="card-price-container">
           <span className="card-price">${price}</span>

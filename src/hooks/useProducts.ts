@@ -8,6 +8,7 @@ const useProducts = () => {
     const fetchProducts = async () => {
       const response = await getProducts();
       setProducts(response);
+      console.log(response);
     };
     fetchProducts();
   }, []);

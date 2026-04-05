@@ -3,6 +3,7 @@ import ProductCard from "../../../components/product-card";
 import { useNavigate } from "react-router";
 
 const index = () => {
+  22;
   const products = useProducts();
   const navigate = useNavigate();
 
@@ -43,7 +44,7 @@ const index = () => {
               title={product.title}
               rating={product.rating}
               price={product.price}
-              image={product.image}
+              image={product.images[0]}
               id={product.id}
             />
           </div>
